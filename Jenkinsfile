@@ -5,9 +5,8 @@ pipeline {
     stages {
         stage('SCM Checkout'){
           git 'https://github.com/prakashk0301/maven-project.git'
-        }
-    }
-   
+                             }
+  
     stage ('build && SonarQube analysis') {
             steps {
 		withSonarQubeEnv('sonar') {
