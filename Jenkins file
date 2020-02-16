@@ -7,7 +7,7 @@
 						stage('scm checkout')
 						{
 							steps{
-								branch: 'master', git: "https://github.com/Ajeetsdhak/maven-project"
+								git branch: 'master', url: 'https://github.com/Ajeetsdhak/maven-project'
 								}
 							
 						}		
