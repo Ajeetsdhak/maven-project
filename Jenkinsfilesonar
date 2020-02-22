@@ -30,7 +30,7 @@
 							steps{
 								sshagent(['sshkeytomcat'])
 								{
-								sh 'scp -0 StricktHostKeyChecking=no */target/*.war ec2-user@3.15.153.24:/usr/share/tomcat/webapp/'
+								sh 'scp -0 StrictHostKeyChecking=no */target/*.war ec2-user@3.15.153.24:/usr/share/tomcat/webapp/'
 								}
 							}
 						}
