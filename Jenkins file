@@ -10,7 +10,16 @@
 								git branch: 'master', url: 'https://github.com/Ajeetsdhak/maven-project'
 								}
 							
-						}		
+						}	
+						
+						
+						stage('install maven')
+						{
+							steps{
+								WithMaven(jdk:'localjdk', maven: 'LocalMaven')
+								}
+							
+						}
 					}	
 			
 	}		
