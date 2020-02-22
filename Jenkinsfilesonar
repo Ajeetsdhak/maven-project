@@ -19,7 +19,7 @@
 								{
 								withMaven(jdk: 'LocalJdk', maven: 'LocalMaven')
 								{
-								sh 'clean mvn install sonar:sonar'
+								sh 'mvn install sonar:sonar'
 								}
 								}
 							}
