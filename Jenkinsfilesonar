@@ -16,7 +16,7 @@
 						{
 							steps{
 								withSonarQubeEnv(credentialsId: 'sonar')
-								withMaven(jdk: 'LocalJdk', maven: 'LocalMaven)
+								withMaven(jdk: 'LocalJdk', maven: 'LocalMaven')
 								{
 								sh 'clean mvn install sonar:sonar'
 								}
