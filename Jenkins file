@@ -16,7 +16,7 @@
 						stage('install maven')
 						{
 							steps{
-								WithMaven(jdk:'localjdk', maven: 'LocalMaven')
+								WithMaven(jdk:'LocalJdk', maven: 'LocalMaven')
 								}
 							
 						}
