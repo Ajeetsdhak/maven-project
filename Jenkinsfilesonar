@@ -15,13 +15,14 @@
 						stage('sonar and maven')
 						{
 							steps{
-								withSonarQubeEnv(credentialsId: 'sonar')
+								withSonarQubeEnv('sonar')
+								{
 								withMaven(jdk: 'LocalJdk', maven: 'LocalMaven')
 								{
 								sh 'clean mvn install sonar:sonar'
 								}
 								}
-							
+							}
 						}
 					}	
 			
