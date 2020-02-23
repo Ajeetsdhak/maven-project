@@ -4,24 +4,28 @@
 			
 				stages
 					{
-						stage('deploy to window')
+						stage('scm checkout')
 						{
 							steps{
+								git branch: 'master', url: 'https://github.com/Ajeetsdhak/maven-project'
 								}
 							
 						}	
 						
-						stage('deploy to linux')
-						{
+						stage('parallel stage')
+						{ parallel {
 							steps{
-								
 							}
+						    }
 						}
 						
 						stage('deploy')
 						{
 							steps{
-								
+								sshagent(['sshkeytomcat'])
+								{
+								sh 'scp -o StrictHostKeyChecking=no */target/*.war ec2-user@3.15.153.24:/usr/share/tomcat/webapps'
+								}
 							}
 						}
 					}	
