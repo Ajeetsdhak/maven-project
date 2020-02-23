@@ -9,24 +9,28 @@
 							steps{
 								git branch: 'master', url: 'https://github.com/Ajeetsdhak/maven-project'
 								}
-							
 						}	
 						
-						stage('parallel stage')
-						{ parallel {
+						stage('parallel stage') {
+						parallel {
+						stage('compile stage')
+						     { 
 							steps{
-							}
-						    }
-						}
-						
-						stage('deploy')
+							withMaven(maven : 'LocalMaven') {
+							sh 'mvn compile'
+							                                }
+						             }
+						     }
+						         							 
+						stage('test')
 						{
 							steps{
-								sshagent(['sshkeytomcat'])
-								{
-								sh 'scp -o StrictHostKeyChecking=no */target/*.war ec2-user@3.15.153.24:/usr/share/tomcat/webapps'
-								}
+							withMaven(maven : 'LocalMaven')
+							 { sh 'mvn test'
+							 }
 							}
+						}
+						}
 						}
 					}	
 			
