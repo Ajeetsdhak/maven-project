@@ -1,0 +1,29 @@
+ pipeline
+	{
+		agent any
+			
+				stages
+					{
+						stage('deploy to window')
+						{
+							steps{
+								}
+							
+						}	
+						
+						stage('deploy to linux')
+						{
+							steps{
+								
+							}
+						}
+						
+						stage('deploy')
+						{
+							steps{
+								
+							}
+						}
+					}	
+			
+	}		
